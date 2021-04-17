@@ -73,3 +73,18 @@ print("f({0}) = {1}".format(6,__twentynine_multiple_with_pluses__(6)))
 # math.asin(1231320) ValueError: math domain error
 
 # math.exp(-4*10023123123123123123120000*-0.0641515994131312312321312312312321312312308) OverflowError: math range error
+
+# Исправление операции умножения
+print(" \nИсправление операции умножения naive_mul : ")
+def naive_mul(x, y):
+   if y == 0:
+       # print(0)
+       return 0
+   r = x
+   for i in range(y-1):
+       x = x + r
+   # print(x)
+   return x
+
+for i in range(101):
+    print(f'\n{15} multiple {i} is {naive_mul(15,i)}')

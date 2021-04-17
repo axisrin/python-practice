@@ -1,30 +1,85 @@
-def first():
+code = f.open("gsrseg.png")
 
-    x=1
-    # expected 2 blank lines, found 1
-    # def func1():
-    #     pass
-    # def func2():
-    #     pass
+# exercise 2
+class C32:
 
-    # multiple statements on one line (colon)
-    # if a > 2: b = 10
-
-    #multiple statements on one line (semicolon).
-    #from gevent import gunga; gunga.patch_all()
-
-    # comparison to None should be 'if cond is None:'.
-    # if var != True:
-    # print("var is not equal to True")
-    # if var == None:
-    # print("var is equal to None")
-
-    # comparison to True should be 'if cond is True:' or 'if cond:'
-    # x = True
-    # if x == True:
-    # print('True!')
+    # cur_dict = {}
+    # a_dict = {}
+    # b_dict = {}
+    # c_dict = {}
+    # d_dict = {}
+    # e_dict = {}
+    # f_dict = {}
 
 
+    def __init__(self):
+        self.cur_dict = {}
+        self.a_dict = {}
+        self.b_dict = {}
+        self.c_dict = {}
+        self.d_dict = {}
+        self.e_dict = {}
+        self.f_dict = {}
+        self.f_dict = {'step': [self.f_dict,'9'],'trace': ['2','8']}
+        self.e_dict = {'step': [self.f_dict,'7']}
+        self.d_dict = {'snap': [self.e_dict,'6']}
+        self.c_dict = {'snap': [self.d_dict,'5']}
+        self.b_dict = {'view': [self.c_dict,'4']}
+        self.a_dict = {'step': [self.b_dict,'0'],'trace': [self.d_dict,'2'],'snap': [self.e_dict,'3'],'view': [self.f_dict,'1']}
+        self.cur_dict = self.a_dict
 
+    #@classmethod
+    def step(self):
+        if 'step' in self.cur_dict:
+            if self.cur_dict is self.f_dict:
+                print(self.cur_dict['step'][1])
+                return
+            print(self.cur_dict['step'][1])
+            self.cur_dict = self.cur_dict['step'][0]
+            return
 
-first()
+        if 'step' not in self.cur_dict:
+            print("RuntimeError")
+            return
+
+    def view(self):
+        if 'view' in self.cur_dict:
+            print(self.cur_dict['view'][1])
+            self.cur_dict = self.cur_dict['view'][0]
+            return
+
+        if 'view' not in self.cur_dict:
+            print("RuntimeError")
+            return
+
+    def snap(self):
+        if 'snap' in self.cur_dict:
+            print(self.cur_dict['snap'][1])
+            self.cur_dict = self.cur_dict['snap'][0]
+            return
+
+        if 'snap' not in self.cur_dict:
+            print("RuntimeError")
+            return
+
+    def trace(self):
+        if 'trace' in self.cur_dict:
+            print(self.cur_dict['trace'][1])
+            self.cur_dict = self.cur_dict['trace'][0]
+            return
+
+        if 'trace' not in self.cur_dict:
+            print("RuntimeError")
+            return
+
+o = C32()
+# print(o.cur_dict)
+o.step()
+o.view()
+o.snap()
+o.snap()
+o.step()
+o.view()
+o.step()
+o.step()
+o.trace()
